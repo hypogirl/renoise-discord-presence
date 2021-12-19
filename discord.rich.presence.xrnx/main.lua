@@ -10,8 +10,7 @@ local function get_song_title(path)
             title_aux = str
     end
     local title = {}
-    local dot = "."
-    for str in string.gmatch(title_aux, "([^"..dot.."]+)") do
+    for str in string.gmatch(title_aux, "([^.]+)") do
         table.insert(title, str)
     end
         return title[1]
