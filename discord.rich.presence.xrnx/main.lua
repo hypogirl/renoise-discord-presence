@@ -23,7 +23,7 @@ local function update_drp()
     if file_name then
         song_title = get_song_title(file_name)
     end
-    local command = "py renoise.py %i" .. song_title
+    local command = "py renoise.py " .. song_title
     os.execute(command)
 end
 
