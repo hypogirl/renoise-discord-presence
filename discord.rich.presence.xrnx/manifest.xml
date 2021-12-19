@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RenoiseScriptingTool doc_version="0">
+  <ApiVersion>6.1</ApiVersion>
+  <Id>discord.rich.presence</Id>
+  <Version>1.0</Version>
+  <Author>slocknad</Author>
+  <Name>Renoise Discord Rich Presence</Name>
+  <Category>Addon</Category>
+  <Description>Tool that updates Discord rich presence with the currently opened Renoise project.</Description>
+</RenoiseScriptingTool>
