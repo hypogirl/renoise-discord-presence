@@ -19,7 +19,12 @@ end
 
 local function update_drp()
     local file_name = renoise.song().file_name
-    local song_title = get_song_title(file_name)
+    local song_title = "Untitled"
+    if file_name then
+        song_title = get_song_title(file_name)
+    end
+    local command = "py renoise.py %i" .. song_title
+    os.execute(command)
 end
 
 renoise.tool():add_menu_entry {
