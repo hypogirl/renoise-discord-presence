@@ -6,14 +6,10 @@ renoise.tool().preferences = options
 
 local function get_song_title(path)
     local title_aux
-    for str in string.gmatch(path, "([a-z]+.xrns)") do
-            title_aux = str
+    for str in string.gmatch(path, "([a-z|0-9]+).xrns") do
+            title = str
     end
-    local title = {}
-    for str in string.gmatch(title_aux, "([^.]+)") do
-        table.insert(title, str)
-    end
-        return title[1]
+        return title
 end
 
 local function update_drp()
