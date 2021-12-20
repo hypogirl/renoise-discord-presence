@@ -4,8 +4,9 @@ local options = renoise.Document.create("ExampleToolPreferences") {
 
 renoise.tool().preferences = options
 
+
 local function get_song_title(path)
-    local title_aux
+    local title
     for str in string.gmatch(path, "([a-z|0-9]+).xrns") do
             title = str
     end
@@ -18,8 +19,16 @@ local function update_drp()
     if file_name then
         song_title = get_song_title(file_name)
     end
-    local command = "py renoise.py " .. song_title
-    os.execute(command)
+    
+    -- having issues with posix
+    local posix = require "posix"
+    local pid = posix.fork()
+    if pid == 0 then 
+        local command = "py renoise.py " .. song_title
+        os.execute(command)
+    else
+        posix.wait(pid)
+    end
 end
 
 renoise.tool():add_menu_entry {
